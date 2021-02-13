@@ -1,7 +1,7 @@
 import cv2
 import matplotlib.pyplot as plt
 
-image = cv2.imread('gray-1.png')
+image = cv2.imread('coins.png')
 # image = cv2.resize(image, (300, 300))  Use this only to reduce the execution time
 image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 m, n = image.shape

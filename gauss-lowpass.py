@@ -18,7 +18,7 @@ def GaussianLowPass(img, size, Do) -> list:
 
 
 Do1 = 100
-img1 = cv2.imread('noisy.tif', 0)
+img1 = cv2.imread('characters.tif', 0)
 size1 = img1.shape[0]
 H1, D1 = GaussianLowPass(img1, size1, Do1)
 input2 = np.fft.fftshift(np.fft.fft2(img1))

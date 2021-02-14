@@ -25,3 +25,7 @@ This was done using Spatial domain filtering.py
 6. Generate a 𝑀×𝑁 sinusoidal image sin(2𝜋𝑢0𝑚/𝑀+2𝜋𝑣0𝑛/𝑁) for 𝑀=𝑁=1001, 𝑢0=100
 and 𝑣0=200 and compute its DFT. To visualize the DFT of an image take logarithm of the
 magnitude spectrum. This was done using DFT visualizer.py
+
+7. Image Deblurring: Deblur the images Blurred-LowNoise.png (Noise Standard Deviation (𝜎)=1),
+Blurred-MedNoise.png (𝜎=5) and Blurred-HighNoise.png (𝜎=10) which have been blurred by the
+kernel BlurKernel.mat using inverse filtering, constrained least squares filtering

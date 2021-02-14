@@ -14,11 +14,12 @@ filter to perform the high pass filtering
 where 𝛾𝐻, 𝛾𝐿 and 𝐷0 are the parameters that you need to adjust through experimentation. 
 This was done using Homomorphic filtering.py
 
-5.Mitigate the noise in the image noisy.tif by filtering it with a square averaging mask of
+5.a. Mitigate the noise in the image noisy.tif by filtering it with a square averaging mask of
 sizes 5,10 and 15. What do you notice with increasing mask size.
+
 b. Use high boost filtering to sharpen the denoised image from part a. Choose the scaling
 constant for the high pass component that minimizes the mean squared error between the
-sharpened image and the image characters.tif. 
+sharpened image and the image characters.tif.
 This was done using Spatial domain filtering.py
 
 6. Generate a 𝑀×𝑁 sinusoidal image sin(2𝜋𝑢0𝑚/𝑀+2𝜋𝑣0𝑛/𝑁) for 𝑀=𝑁=1001, 𝑢0=100

@@ -1,28 +1,39 @@
 import cv2
 import matplotlib.pyplot as plt
 
-image = cv2.imread('coins.png')
-# image = cv2.resize(image, (300, 300))  Use this only to reduce the execution time
-image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-m, n = image.shape
-count = 0
-frequency = [0] * 256
-for i in range(1, 256):
-    for j in range(1, m):
-        for k in range(1, n):
-            if image[j][k] == i - 1:
-                count = count + 1
-    frequency[i] = count
-    count = 0
+class Histogram:
+    def __init__(self, image, resize, r1, r2):
+        self.image = image
+        self.resize = resize
+        self.r1, self.r2 = r1, r2
 
+    def plot(self):
+        image1 = cv2.resize(self.image, (self.resize, self.resize))
+        image1 = cv2.cvtColor(image1, cv2.COLOR_BGR2GRAY)
+        m, n = image1.shape
+        count = 0
+        frequency = [0] * 256
+        for i in range(1, 256):
+            for j in range(1, m):
+                for k in range(1, n):
+                    if image1[j][k] == i - 1:
+                        count = count + 1
+            frequency[i] = count
+            count = 0
+        return frequency
 
-def createList(r1, r2):
-    return [item for item in range(r1, r2 + 1)]
+    def createList(self):
+        return [item for item in range(self.r1,self.r2 + 1)]
 
-
-r1, r2 = 0, 255
-
-x = createList(r1, r2)
-plt.stem(x, frequency, use_line_collection=True)
-plt.title('Histogram for the given image')
-plt.show()
+if __name__ == '__main__':
+    image = cv2.imread('test_image.jpg')
+    resize = 300
+    r1 = 0
+    r2 = 255
+    hist = Histogram(image, resize, r1, r2)
+    f = hist.plot()
+    x = hist.createList()
+    plt.stem(x, f, use_line_collection=True)
+    plt.title('Histogram for the given image')
+    plt.show()
+    
